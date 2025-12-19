@@ -1,0 +1,19 @@
+#+title:      Project Hail Mary Reading Notes
+#+filetags:   :reading:
+#+DATE: 2023-06-01
+
+#+begin_quote
+Author: Andy Weir
+
+Other works: The Martian
+#+end_quote
+
+I read a second novel by Andy Weir. His science fiction is still relatively easy to understand, without any particularly profound concepts. The story creates a crisis environment and uses basic physics concepts to solve problems step by step.
+
+The protagonist is not a hero who sacrifices everything to save the world, and is even timid. However, he remains a person of integrity, always acting for the benefit of the world when faced with difficult decisions.
+
+In the end, he proves more decisive in saving his friends than in saving the world itself.
+
+The final ending is quite interesting, avoiding depictions of a devastated Earth or a hero's return. Instead, it opens up a whole new world.
+
+And until the very end, the protagonist remains just an ordinary teacher.

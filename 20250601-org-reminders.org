@@ -1,0 +1,31 @@
+#+TITLE: Org Reminders
+#+filetags: :emacs:project:
+#+DATE: 2025-06-01
+
+* Overview
+I use Reminders on my iPhone or iPad for daily to-dos, but Emacs org mode on my computer. This makes switching between the two applications uncomfortable.
+
+Org mode is a powerful tool for editing and managing to-do lists on a computer. Apps like [[https://www.beorgapp.com/][beorg]] allow you to edit and sync Org mode files on mobile devices. You can use it to get a familiar experience on computers and mobile devices.
+
+But I think Reminders offers a simpler, more intuitive mobile experience. I'm building an Emacs plugin to sync to-dos between Org mode and Reminders.
+
+Thanks [[https://github.com/keith/reminders-cli][reminders-cli]] to provide a simple and good performance CLI tool for interacting with macOS reminders.
+
+Because I needed specific features, I forked it to [[https://github.com/ginqi7/reminders-cli/][ginqi7@reminders-cli]].
+
+Thanks [[https://github.com/jdtsmith][jdtsmith]] provide great ideas for true sync logic. this is the [[https://github.com/ginqi7/org-reminders/issues/2][discuss]].
+
+* Design
+** Project Structure
+
+There are two components:
+1. *org-reminders-cli* : A controller for monitoring the org mode file and Reminders. When changes occur in the org mode file or Reminders, it compares the differences between them, updates Reminders, or sends messages to Emacs.
+2. *org-reminders elisp* : A frontend that receives messages from org-reminders-cli and updates the org mode file.
+
+# [[file:tikz/org-reminders.tex]]
+[[./images/org-reminders.svg]]
+
+** Websocket-bridge
+Using WebSocket bridge to communicate between Emacs and a Swift program enhances message handling robustness.
+** Treesite-org
+Parsing the org mode file using org-tree-sitter is remarkably efficient, processing ten thousand items in under one second.

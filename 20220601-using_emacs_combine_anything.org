@@ -1,0 +1,84 @@
+#+title:      Using Emacs Combine Anything
+#+filetags: :emacs:project:
+#+DATE: 2022-06-01
+
+
+I've written several Emacs tools to be more productive. As an Emacs Lisp novice, instead of writing pure Emacs Lisp programs, I used Emacs Lisp to encapsulate several console tools and use Emacs as an adhesive. Overall, it feels good to use.
+
+I feel using Emacs as a console tools' GUI interface is a good choice. On the one hand, it can reuse a series of methods and plugins of Emacs and write some frequent operations as Emacs functions and bind them to a shortcut key. You can run some console commands easily and quickly while writing documents, On the other hand, there is no need to repeat the core logic of console tools.
+
+Recently wrote for 4 Emacs tools:
+
+1. leetcode-emacs: https://github.com/ginqi7/leetcode-emacs, an emacs plugin to write Leetcode programs
+2. hbase-shell-emacs: https://github.com/ginqi7/hbase-shell-emacs, A Emacs Plugin for Hbase shell
+3. kubectl-emacs: https://github.com/ginqi7/kubectl-emacs, This is an Emacs plugin that makes it easier and faster to manage k8s using kubectl.
+4. global-interactive-emacs: https://github.com/ginqi7/global-interactive-emacs, Global Interactive Emacs
+
+These tools can be divided into two categories:
+
+The first 3 tools use Emacs as a GUI or interactive interface for a series of command-line tools
+
+The last one is using Emacs as the backend of the system application shortcut launcher. Use interactive methods outside of Emacs defined in Emacs.
+
+* Using Emacs as a GUI or interactive interface
+
+The idea and implementation of using Emacs as a GUI or interactive interface are very simple and intuitive.
+
++ Using emacs to define an interactive function for command-line tools, while you want to fuzz search some options or inputs to run a complex command.
++ Using emacs =ctable=[fn:1] to list outputs and bind some function on hotkey in its cell, while you want to review command-line tools' output, and run some frequency operations on some specific output.
+
+** Example
+
+#+HTML: <p align="center"><img width="600px" src="https://github.com/ginqi7/leetcode-emacs/raw/master/resources/leetcode-filter-by-tag.gif"></img></p>
+
+#+HTML: <p align="center"><img width="600px" src="https://github.com/ginqi7/kubectl-emacs/raw/main/images/kubect-get-interactive.gif"></img></p>
+
+* Global Interactive Emacs
+
+This tool is inspired by article : [[https://isamert.net/2022/03/16/global-interactive-emacs-functions.html][Global interactive Emacs functions]].It provides an idea to run Emacs functions outside of Emacs.
+
+So I try to use this idea to write a tool like [[https://www.obdev.at/products/launchbar/index.html][lauchbar]] or [[https://www.alfredapp.com/][Alfred]]. It can help users quickly launch apps or run workflows.
+
+I'm using it to replace the Launchbar.
+
+** Principle
+
+the idea of =Global Interactive Emacs= is so interesting.
+
+On Emacs, using =completing-function= to implement interactive function, it will use minibuffer to input function parameter.
+
+=Global Interactive Emacs= overwrite the =completing-function=, using =choose=[fn:2] to accept parameter. So we can run Emacs interactive function without focus Emacs.
+
+** Pros and cons
+
+This tool has some pros and cons, and I think if you have the following needs, you can try to use it :
+
+- you don't want pay for other tools like [[https://www.obdev.at/products/launchbar/index.html][lauchbar]] or [[https://www.alfredapp.com/][Alfred]] .
+- you wish some function in Emacs could run out of Emacs.
+- You're familiar with Emacs, there are some plugins, and custom functions that you want to reuse.
+- You don't want to learn a new language or workflow of a new software
+- ...
+
+*** Pros
+
+- *free*: Whether Lauchbar or Alfred, you need to pay for it to use it comfortably and efficiently. Just need =Emacs=  and some open source software that you can use for free.
+- *consistency*: You can use the same features inside or outside of Emacs and have a similar experience.
+- *Simple Configuration*: If you are familiar with Emacs, you can easily configure it with emacs-lisp without having to relearn the language and process of other tools.
+- *Scalability*: You can write your interactive functions and plug them into the tool, or use the Emacs plugins developed by others to extract the interaction functions and plug them into the tool.
+
+*** Cons
+
+- *Not powerful for now*: Obviously, the tool is not as powerful as Lauchbar or Alfred. At the moment it is only useful for my own needs. I will continue to improve according to my needs, and anyone is welcome to help improve it.
+- *Can't perfectly support all Emacs interactive functions*: There are currently some Emacs interaction functions that cannot be run outside of Emacs, such as =execute-extended-command=. I don't have the train of thought to support it yet.
+
+** Example
+
+#+HTML: <p align="center"><img width="600px" src="https://github.com/ginqi7/global-interactive-emacs/raw/main/example/global-interactive-open-url.gif"></img></p>
+
+#+HTML: <p align="center"><img width="600px" src="https://github.com/ginqi7/global-interactive-emacs/raw/main/example/global-interactive-run-app.gif"></img></p>
+
+* Footnotes
+
+[fn:2] [[https://github.com/chipsenkbeil/choose][choose github]] :Fuzzy matcher for OS X that uses both std{in,out} and a native GUI
+
+[fn:1] [[https://github.com/kiwanami/emacs-ctable][emacs-ctable]] : Table Component for elisp

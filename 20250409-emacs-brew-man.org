@@ -1,0 +1,25 @@
+#+TITLE: Emacs Brew Manager
+#+filetags: :emacs:project:
+#+DATE: 2025-04-09
+
+* Summary
+A simple Homebrew manager by Emacs.
+
+The brew CLI is already sufficient for adding, deleting, or searching for formulae. However, when reviewing installed formulae — such as identifying unused ones or checking for version updates — a GUI is more convenient. That's why I created this Emacs package to manage installed formulae with additional features.
+
+* Features
+** Display all installed Formulae and Casks.
+
+You can view all installed Formulae and Casks, with columns indicating the available new versions for updates and whether the Formula or Cask is used by other Formulae or Casks.
+
+You can use the list information to decide which formulae and casks to delete or update, making your computer system cleaner and more controllable.
+
+** Display all installed Taps.
+
+You can check the Tap to see how many Formulae and Casks are available and how many are installed.
+
+You can delete unnecessary taps and interactively select to install Formulae or Casks provided by a specific tap.
+
+* How it works
+
+Essentially, it is a wrapper around the brew command line, utilizing [[https://github.com/ginqi7/websocket-bridge-ruby][websocket-bridge-ruby]] as a bridge. The choice of Ruby is due to its ease in handling shell outcomes.
