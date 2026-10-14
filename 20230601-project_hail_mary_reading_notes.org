@@ -1,4 +1,4 @@
-#+title:      Project Hail Mary Reading Notes
+#+title:      "Project Hail Mary" Reading Notes
 #+filetags:   :reading:
 #+DATE: 2023-06-01
 
@@ -8,7 +8,7 @@ Author: Andy Weir
 Other works: The Martian
 #+end_quote
 
-I read a second novel by Andy Weir. His science fiction is still relatively easy to understand, without any particularly profound concepts. The story creates a crisis environment and uses basic physics concepts to solve problems step by step.
+The second novel by Andy Weir that I've read. His science fiction is still relatively easy to understand, without any particularly profound concepts. The story creates a crisis environment and uses basic physics concepts to solve problems step by step.
 
 The protagonist is not a hero who sacrifices everything to save the world, and is even timid. However, he remains a person of integrity, always acting for the benefit of the world when faced with difficult decisions.
 
